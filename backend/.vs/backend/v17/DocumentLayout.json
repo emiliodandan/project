@@ -1,26 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\media-store\\backend\\",
+  "WorkspaceRootPath": "D:\\project\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\media-store\\backend\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\project\\backend\\controllers\\usercartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:controllers\\usercartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\media-store\\backend\\entities\\media.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\project\\backend\\entities\\media.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:entities\\media.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\media-store\\backend\\controllers\\mediacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\project\\backend\\dtos\\usercartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:dtos\\usercartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\project\\backend\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\project\\backend\\controllers\\rankingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:controllers\\rankingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\project\\backend\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\project\\backend\\controllers\\mediacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:controllers\\mediacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\media-store\\backend\\dtos\\moviedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:dtos\\moviedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\media-store\\backend\\dtos\\bookdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:dtos\\bookdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\project\\backend\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,68 +42,111 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserCartDto.cs",
+              "DocumentMoniker": "D:\\project\\backend\\Dtos\\UserCartDto.cs",
+              "RelativeDocumentMoniker": "Dtos\\UserCartDto.cs",
+              "ToolTip": "D:\\project\\backend\\Dtos\\UserCartDto.cs",
+              "RelativeToolTip": "Dtos\\UserCartDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-06T13:23:39.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Media.cs",
+              "DocumentMoniker": "D:\\project\\backend\\Entities\\Media.cs",
+              "RelativeDocumentMoniker": "Entities\\Media.cs",
+              "ToolTip": "D:\\project\\backend\\Entities\\Media.cs",
+              "RelativeToolTip": "Entities\\Media.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAMAiwEMAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-06T13:21:53.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UserCartController.cs",
+              "DocumentMoniker": "D:\\project\\backend\\Controllers\\UserCartController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserCartController.cs",
+              "ToolTip": "D:\\project\\backend\\Controllers\\UserCartController.cs",
+              "RelativeToolTip": "Controllers\\UserCartController.cs",
+              "ViewState": "AQIAACsAAAAgmpmZmdkwwDQAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-06T13:21:50.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RankingController.cs",
+              "DocumentMoniker": "D:\\project\\backend\\Controllers\\RankingController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RankingController.cs",
+              "ToolTip": "D:\\project\\backend\\Controllers\\RankingController.cs",
+              "RelativeToolTip": "Controllers\\RankingController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-06T13:19:44.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "D:\\project\\backend\\Dtos\\UserDto.cs",
+              "RelativeDocumentMoniker": "Dtos\\UserDto.cs",
+              "ToolTip": "D:\\project\\backend\\Dtos\\UserDto.cs",
+              "RelativeToolTip": "Dtos\\UserDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-06T12:06:48.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\project\\backend\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
+              "ToolTip": "D:\\project\\backend\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Controllers\\UsersController.cs",
+              "ViewState": "AQIAACAAAAAARzMzMzMFwEMAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-06T12:04:56.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\media-store\\backend\\Context\\ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\project\\backend\\Context\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Context\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\media-store\\backend\\Context\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\project\\backend\\Context\\ApplicationDbContext.cs",
               "RelativeToolTip": "Context\\ApplicationDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAABUAAACAMjMzMzMKwAwAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-06T11:18:46.601Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "MediaController.cs",
-              "DocumentMoniker": "D:\\media-store\\backend\\Controllers\\MediaController.cs",
+              "DocumentMoniker": "D:\\project\\backend\\Controllers\\MediaController.cs",
               "RelativeDocumentMoniker": "Controllers\\MediaController.cs",
-              "ToolTip": "D:\\media-store\\backend\\Controllers\\MediaController.cs",
+              "ToolTip": "D:\\project\\backend\\Controllers\\MediaController.cs",
               "RelativeToolTip": "Controllers\\MediaController.cs",
-              "ViewState": "AQIAADYAAABAAAAAAEAjwAsAAAAxAAAA",
+              "ViewState": "AQIAALoAAAAA0szMzIwgwNIAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T11:14:55.435Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MovieDto.cs",
-              "DocumentMoniker": "D:\\media-store\\backend\\Dtos\\MovieDto.cs",
-              "RelativeDocumentMoniker": "Dtos\\MovieDto.cs",
-              "ToolTip": "D:\\media-store\\backend\\Dtos\\MovieDto.cs",
-              "RelativeToolTip": "Dtos\\MovieDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T11:14:39.203Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BookDto.cs",
-              "DocumentMoniker": "D:\\media-store\\backend\\Dtos\\BookDto.cs",
-              "RelativeDocumentMoniker": "Dtos\\BookDto.cs",
-              "ToolTip": "D:\\media-store\\backend\\Dtos\\BookDto.cs",
-              "RelativeToolTip": "Dtos\\BookDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T11:14:37.988Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Media.cs",
-              "DocumentMoniker": "D:\\media-store\\backend\\Entities\\Media.cs",
-              "RelativeDocumentMoniker": "Entities\\Media.cs",
-              "ToolTip": "D:\\media-store\\backend\\Entities\\Media.cs",
-              "RelativeToolTip": "Entities\\Media.cs",
-              "ViewState": "AQIAADwAAAAAzczMzMwqwB8AAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T07:50:09.612Z"
+              "WhenOpened": "2024-04-06T11:14:55.435Z",
+              "EditorCaption": ""
             }
           ]
         }

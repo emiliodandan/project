@@ -1,6 +1,9 @@
 ﻿using backend.Context;
+using backend.Dtos;
+using backend.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers
 {
@@ -13,6 +16,81 @@ namespace backend.Controllers
         {
             _context = context;
         }
+
+        [HttpPost("AddUser")]
+        public async Task<ActionResult> AddUser([FromBody] UserDto dto)
+        {
+            var user = new User()
+            {
+                Username = dto.Username,
+                Email = dto.Email,
+                Password = dto.Password,
+                IsAdmin = false,
+            };
+
+            await _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync();
+
+            return Ok("User added!");
+        }
+
+        [HttpGet("GetUsers")] //admin
+        public async Task<ActionResult<List<User>>> GetAllUsers()
+        {
+            var users = await _context.Users.ToListAsync();
+            return Ok(users);
+        }
+
+        [HttpGet("GetUser/{id}")]
+        public async Task<ActionResult<User>> GetUserById([FromRoute] int id)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserId == id);
+            if (user is null)
+            {
+                return NotFound("User not found");
+            }
+
+            return Ok(user);
+        }
+
+        [HttpPatch("ChangeUserPassword/{id}")]
+        public async Task<ActionResult> UpdatePassword([FromRoute] int id, [FromBody] UserDto dto)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserId == id);
+            if (user is null)
+            {
+                return NotFound("User not found");
+            }
+            if (dto.Password != null)
+            {
+                user.Password = dto.Password;
+            }
+            else
+            {
+                return BadRequest("No fields provided for update");
+            }
+            
+            await _context.SaveChangesAsync();
+
+            return Ok("User password updated");
+        }
+
+        [HttpDelete("DeleteUser/{id}")] //admin
+        public async Task<ActionResult> UpdatePassword([FromRoute] int id)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserId == id);
+            if (user is null)
+            {
+                return NotFound("User not found");
+            }
+
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+
+            return Ok("User deleted successfully");
+        }
+
+
 
 
     }

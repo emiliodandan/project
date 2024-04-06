@@ -4,6 +4,7 @@ using backend.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 namespace backend.Controllers
 {
@@ -98,6 +99,125 @@ namespace backend.Controllers
                 return NotFound("Movie not found");
             }
             return Ok(movie);
+        }
+
+        [HttpPatch("UpdateBook/{id}")]
+        public async Task<ActionResult> UpdateBook([FromRoute] int id, [FromBody] BookDto dto)
+        {
+            var book = await _context.Books.FirstOrDefaultAsync(b => b.MediaId == id);
+            if (book is null)
+            {
+                return NotFound("Book not found");
+            }
+
+            if (dto.Title != null)
+            {
+                book.Title = dto.Title;
+            }
+             if (dto.Description != null)
+            {
+                book.Description = dto.Description;
+            }
+             if (dto.Creator != null)
+            {
+                book.Creator = dto.Creator;
+            }
+             if (dto.Year != 0)
+            {
+                book.Year = dto.Year;
+            }
+             if (dto.NbPages != 0)
+            {
+                book.NbPages = dto.NbPages;
+            }
+            if (dto.Cover != null)
+            {
+                book.Cover = dto.Cover;
+            }
+            else
+            {
+                return BadRequest("No fields provided for update");
+            }
+
+            await _context.SaveChangesAsync();
+
+            return Ok("Book updated");
+           
+        }
+
+        [HttpPatch("UpdateMovie/{id}")]
+        public async Task<ActionResult> UpdateMovie([FromRoute] int id, [FromBody] MovieDto dto)
+        {
+            var movie = await _context.Movies.FirstOrDefaultAsync(b => b.MediaId == id);
+            if (movie is null)
+            {
+                return NotFound("Movie not found");
+            }
+
+            if (dto.Title != null)
+            {
+                movie.Title = dto.Title;
+            }
+            if (dto.Description != null)
+            {
+                movie.Description = dto.Description;
+            }
+            if (dto.Creator != null)
+            {
+                movie.Creator = dto.Creator;
+            }
+            if (dto.Year != 0)
+            {
+                movie.Year = dto.Year;
+            }
+            if (dto.DurationMinutes != 0)
+            {
+                movie.DurationMinutes = dto.DurationMinutes;
+            }
+            if (dto.Cover != null)
+            {
+                movie.Cover = dto.Cover;
+            }
+            else
+            {
+                return BadRequest("No fields provided for update");
+            }
+
+            await _context.SaveChangesAsync();
+
+            return Ok("Movie updated");
+        }
+
+
+        [HttpDelete("DeleteBook/{id}")]
+        public async Task<ActionResult> DeleteBook([FromRoute] int id)
+        {
+            var book = await _context.Books.FirstOrDefaultAsync(b => b.MediaId == id);
+            if (book is null)
+            {
+                return NotFound("Book not found");
+            }
+
+            _context.Remove(book);
+            await _context.SaveChangesAsync();
+
+            return Ok("Book deleted");
+        }
+
+
+        [HttpDelete("DeleteMovie/{id}")]
+        public async Task<ActionResult> DeleteMovie([FromRoute] int id)
+        {
+            var movie = await _context.Movies.FirstOrDefaultAsync(m => m.MediaId == id);
+            if (movie is null)
+            {
+                return NotFound("Movie not found");
+            }
+
+            _context.Remove(movie);
+            await _context.SaveChangesAsync();
+
+            return Ok("Movie deleted");
         }
     }
 }
