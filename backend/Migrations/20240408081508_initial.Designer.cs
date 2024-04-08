@@ -11,7 +11,7 @@ using backend.Context;
 namespace backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240406083753_initial")]
+    [Migration("20240408081508_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -69,28 +69,6 @@ namespace backend.Migrations
                     b.UseTphMappingStrategy();
                 });
 
-            modelBuilder.Entity("backend.Entities.Ranking", b =>
-                {
-                    b.Property<int>("RankingId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RankingId"));
-
-                    b.Property<int>("Rank")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserCartId")
-                        .HasColumnType("int");
-
-                    b.HasKey("RankingId");
-
-                    b.HasIndex("UserCartId")
-                        .IsUnique();
-
-                    b.ToTable("Rankings");
-                });
-
             modelBuilder.Entity("backend.Entities.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -130,6 +108,9 @@ namespace backend.Migrations
                     b.Property<int>("MediaId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Ranking")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -162,17 +143,6 @@ namespace backend.Migrations
                     b.HasDiscriminator().HasValue("Movie");
                 });
 
-            modelBuilder.Entity("backend.Entities.Ranking", b =>
-                {
-                    b.HasOne("backend.Entities.UserCart", "UserCart")
-                        .WithOne("Ranking")
-                        .HasForeignKey("backend.Entities.Ranking", "UserCartId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserCart");
-                });
-
             modelBuilder.Entity("backend.Entities.UserCart", b =>
                 {
                     b.HasOne("backend.Entities.Media", "Media")
@@ -190,12 +160,6 @@ namespace backend.Migrations
                     b.Navigation("Media");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("backend.Entities.UserCart", b =>
-                {
-                    b.Navigation("Ranking")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

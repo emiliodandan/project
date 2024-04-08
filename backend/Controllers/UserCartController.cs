@@ -58,7 +58,7 @@ namespace backend.Controllers
         }
 
         [HttpDelete("DeleteAllItems/{id}")]
-        public async Task<ActionResult> DeleteAllItems([FromRoute] int id)
+        public async Task<ActionResult<List<UserCart>>> DeleteAllItems([FromRoute] int id)
         {
             var cartItems = await _context.UserCarts.Where(i => i.UserId == id).ToListAsync();
             if (cartItems.Count == 0)
@@ -73,7 +73,20 @@ namespace backend.Controllers
         }
 
 
+        [HttpPatch("AddRanking/{userId}/{cartItemId}/{rankId}")]
+        public async Task<ActionResult> AddRanking([FromRoute] int userId, [FromRoute] int cartItemId, [FromRoute] int rankId)
+        {
+            var rank = await _context.UserCarts.FirstOrDefaultAsync(u => u.UserId == userId && u.MediaId == cartItemId);
+            if (rank is null)
+            {
+                return NotFound("Item not found");
+            }
+            
+            rank.Ranking = rankId;
 
+            await _context.SaveChangesAsync();
+            return Ok("Added ranking");
+        }
 
 
 

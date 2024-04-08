@@ -46,17 +46,6 @@ namespace backend.Entities
         public int DurationMinutes { get; set; }
     }
 
-    public class Ranking
-    {
-        [Key]
-        public int RankingId { get; set; }
-        public int UserCartId { get; set; }
-        public int Rank { get; set; }
-
-        [ForeignKey("UserCartId")]
-        public UserCart UserCart { get; set; }
-    }
-
     public class UserCart
     {
         [Key]
@@ -70,6 +59,6 @@ namespace backend.Entities
         [ForeignKey("MediaId")]
         public Media Media { get; set; }
 
-        public Ranking Ranking { get; set; }
+        public int Ranking { get; set; }
     }
 }

@@ -54,7 +54,8 @@ namespace backend.Migrations
                     CartItemId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    MediaId = table.Column<int>(type: "int", nullable: false)
+                    MediaId = table.Column<int>(type: "int", nullable: false),
+                    Ranking = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -73,32 +74,6 @@ namespace backend.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Rankings",
-                columns: table => new
-                {
-                    RankingId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserCartId = table.Column<int>(type: "int", nullable: false),
-                    Rank = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Rankings", x => x.RankingId);
-                    table.ForeignKey(
-                        name: "FK_Rankings_UserCarts_UserCartId",
-                        column: x => x.UserCartId,
-                        principalTable: "UserCarts",
-                        principalColumn: "CartItemId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Rankings_UserCartId",
-                table: "Rankings",
-                column: "UserCartId",
-                unique: true);
-
             migrationBuilder.CreateIndex(
                 name: "IX_UserCarts_MediaId",
                 table: "UserCarts",
@@ -113,9 +88,6 @@ namespace backend.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Rankings");
-
             migrationBuilder.DropTable(
                 name: "UserCarts");
 
