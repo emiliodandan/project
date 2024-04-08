@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../layout/layout";
 import axios from "axios";
+import { mediaBaseUrl } from "../constants/url.constant";
 
 const AddMovies = () => {
   const [movie, setMovie] = useState({
     title: "",
-    desc: "",
-    price: null,
+    creator:"",
+    description: "",
     cover: "",
+    durationMinutes:"",
+    year:"",
   });
   const navigate = useNavigate();
 
@@ -18,7 +21,7 @@ const AddMovies = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8800/movies", movie);
+      await axios.post(mediaBaseUrl + "CreateMovie", movie);
       navigate("/movies");
     } catch (err) {
       console.log(err);
@@ -36,15 +39,15 @@ const AddMovies = () => {
         />
         <input
           type="text"
-          placeholder="desc"
+          placeholder="creator"
           onChange={handleChange}
-          name="desc"
+          name="creator"
         />
         <input
-          type="number"
-          placeholder="price"
+          type="text"
+          placeholder="description"
           onChange={handleChange}
-          name="price"
+          name="description"
         />
         <input
           type="text"
@@ -53,10 +56,16 @@ const AddMovies = () => {
           name="cover"
         />
         <input
-          type="date"
-          placeholder="date of release"
+          type="number"
+          placeholder="Duration of the movie"
           onChange={handleChange}
-          name="releasedate"
+          name="durationMinutes"
+        />
+        <input
+          type="number"
+          placeholder="year of release"
+          onChange={handleChange}
+          name="year"
         />
         <button className="formButton" onClick={handleClick}>
           Add

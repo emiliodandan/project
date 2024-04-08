@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../layout/layout";
 import axios from "axios";
+import { mediaBaseUrl } from "../constants/url.constant";
 
 const Movies=()=>{
     const [movies,setMovies]=useState([])
@@ -10,7 +11,7 @@ const Movies=()=>{
     useEffect(()=>{
         const fetchAllMovies=async()=>{
             try{
-                const res= await axios.get("http://localhost:8800/movies/")
+                const res= await axios.get(mediaBaseUrl + "GetAllMovies")
                 setMovies(res.data);
             }catch(err){
                 console.log(err);
@@ -21,7 +22,7 @@ const Movies=()=>{
 
     const handleDelete= async (id)=>{
         try{
-            await axios.delete("http://localhost:8800/movies/"+id)
+            await axios.delete(mediaBaseUrl+ "DeleteMovie/" + id)
             window.location.reload();
         }catch(err){
             console.log(err);
@@ -33,13 +34,15 @@ const Movies=()=>{
             <h1>Movies Shop</h1>
             <div className="movies">
                 {movies.map(movie=>(
-                    <div className="movie" key={movie.id}>
+                    <div className="movie" key={movie.mediaId}>
                         {movie.cover && <img src={movie.cover} alt="" />}
                         <h2>{movie.title}</h2>
-                        <p>{movie.desc}</p>
-                        <span>{movie.price}</span>
-                        <button className="delete" onClick={()=>handleDelete(movie.id)}>Delete</button>
-                        <button className="update"><Link to={`/update/${movie.id}`}>Update</Link></button>
+                        <p>{movie.description}</p>
+                        <span>{movie.creator}</span>
+                        <span>{movie.year}</span>
+                        <span>{movie.durationMinutes}</span>
+                        <button className="delete" onClick={()=>handleDelete(movie.mediaId)}>Delete</button>
+                        <button className="update"><Link to={`/update/${movie.mediaId}`}>Update</Link></button>
                     </div>
                 ))}
             </div>

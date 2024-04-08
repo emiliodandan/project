@@ -56,13 +56,20 @@ namespace backend.Controllers
         [HttpGet("GetUser/{userName}/{password}")]
         public async Task<ActionResult<User>> GetUserById([FromRoute] string userName, [FromRoute] string password)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == userName && u.Password == password);
-            if (user is null)
+            try
             {
-                return NotFound("User not found");
-            }
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == userName && u.Password == password);
+                if (user == null)
+                {
+                    return NotFound("User not found");
+                }
 
-            return Ok(user);
+                return Ok(user);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while fetching user.");
+            }
         }
 
 
