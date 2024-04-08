@@ -53,6 +53,19 @@ namespace backend.Controllers
             return Ok(user);
         }
 
+        [HttpGet("GetUser/{userName}/{password}")]
+        public async Task<ActionResult<User>> GetUserById([FromRoute] string userName, [FromRoute] string password)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == userName && u.Password == password);
+            if (user is null)
+            {
+                return NotFound("User not found");
+            }
+
+            return Ok(user);
+        }
+
+
         [HttpPatch("ChangeUserPassword/{id}")]
         public async Task<ActionResult> UpdatePassword([FromRoute] int id, [FromBody] UserDto dto)
         {

@@ -25,6 +25,7 @@ namespace backend.Controllers
             {
                 MediaId = dto.MediaId,
                 UserId = dto.UserId,
+                DateAdded = DateTime.Now,
             };
             await _context.UserCarts.AddAsync(userCart);
             await _context.SaveChangesAsync();

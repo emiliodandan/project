@@ -60,5 +60,8 @@ namespace backend.Entities
         public Media Media { get; set; }
 
         public int Ranking { get; set; }
+
+        public DateTime DateAdded { get; set; }
+
     }
 }

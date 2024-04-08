@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Layout from '../layout/layout';
+import axios from 'axios';
 
 
 const Update =() =>{

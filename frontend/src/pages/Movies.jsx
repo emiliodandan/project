@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../layout/layout";
+import axios from "axios";
 
 const Movies=()=>{
     const [movies,setMovies]=useState([])
@@ -10,7 +11,7 @@ const Movies=()=>{
         const fetchAllMovies=async()=>{
             try{
                 const res= await axios.get("http://localhost:8800/movies/")
-                setBooks(res.data);
+                setMovies(res.data);
             }catch(err){
                 console.log(err);
             }

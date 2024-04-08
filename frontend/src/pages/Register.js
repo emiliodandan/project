@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
+import { usersBaseUrl } from "../constants/url.constant";
 
 const Register=()=>{
     const [User, setUser]=useState({
@@ -19,7 +20,7 @@ const Register=()=>{
     const handleClick = async e =>{
         e.preventDefault();
         try{
-            await axios.get("http://localhost:8800/register", User)
+            await axios.get(usersBaseUrl + "AddUser/")
             navigate("/");
         }catch(err){
             console.log(err);
