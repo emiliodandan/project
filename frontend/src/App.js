@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
 import AddBooks from './pages/AddBooks';
-import Update from './pages/Update';
+import UpdateBooks from './pages/UpdateBooks';
 import Books from './pages/Books';
 import "./style.css"
 import Movies from './pages/Movies';
@@ -23,7 +23,7 @@ function App() {
         <Route path="/movies" element={<Movies />}/>
         <Route path="/books" element={<Books />}/>
         <Route path="/addbooks" element={<AddBooks />}/>
-        <Route path="/update/id" element={<Update />}/>
+        <Route path="/update/:id" element={<UpdateBooks />} />
         <Route path="/addmovies" element={<AddMovies />}/>
         <Route path="/ranking" element={<Ranking />}/>
       </Routes>

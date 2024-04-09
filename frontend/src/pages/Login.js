@@ -7,8 +7,9 @@ function Login() {
   const [wrong, setWrong] = useState(false);
   const [error, setError] = useState(false);
   const [data, setData] = useState({
-    Username: "",
-    Password: "",
+    username: "",
+    password: "",
+    isAdmin: false
   });
   const handleChange = (e) => {
     const value = e.target.value;
@@ -18,27 +19,24 @@ function Login() {
     });
   };
   const navigate = useNavigate();
-  const HandleLogin = (e) => {
+  const HandleLogin = async (e) => {
     e.preventDefault();
-    const userData = {
-      Username: data.Username,
-      Password: data.Password,
-    };
-    console.log(userData);
+    console.log(data);
     try {
-      const res = axios.get(
-        usersBaseUrl + "GetUser/" + userData.Username + "/" + userData.Password
+      const res = await axios.get(
+        usersBaseUrl + "GetUser/" + data.username + "/" + data.password
       );
-      const data = res.data;
+      const responseData = res.data; // Use a different variable name here
       console.log(res);
-      if (res.status == 200) {
+      if (res.status === 200) {
         console.log("Login successful");
         navigate("/home");
-      } //else console.log("Login failed", data.error);
+      } //else console.log("Login failed", responseData.error);
     } catch (error) {
       console.log("Login error", error);
     }
   };
+  
   return (
     <>
       <div>
@@ -54,7 +52,7 @@ function Login() {
                 <input
                   className="inputRegister"
                   id="username"
-                  name="Username"
+                  name="username"
                   type="text"
                   required
                   onChange={handleChange}
@@ -67,7 +65,7 @@ function Login() {
                 <input
                   className="inputRegister"
                   id="password"
-                  name="Password"
+                  name="password"
                   type="password"
                   required
                   onChange={handleChange}

@@ -31,6 +31,8 @@ namespace backend.Entities
         public string Cover { get; set; }
         [Required]
         public int Year { get; set; }
+        public DateTime DateAdded { get; set; }
+
 
     }
 
@@ -60,8 +62,9 @@ namespace backend.Entities
         public Media Media { get; set; }
 
         public int Ranking { get; set; }
-
         public DateTime DateAdded { get; set; }
+
+
 
     }
 }

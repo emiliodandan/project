@@ -12,7 +12,7 @@ using backend.Context;
 namespace backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240408163235_initial")]
+    [Migration("20240409064339_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -40,6 +40,9 @@ namespace backend.Migrations
                     b.Property<string>("Creator")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()

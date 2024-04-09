@@ -6,6 +6,7 @@ import { mediaBaseUrl } from "../constants/url.constant";
 
 const AddMovies = () => {
   const [movie, setMovie] = useState({
+    mediaType: "movie",
     title: "",
     creator:"",
     description: "",

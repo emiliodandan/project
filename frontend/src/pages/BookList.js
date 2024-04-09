@@ -5,7 +5,7 @@ const BookList = ({ books }) => {
     <ul>
       {books.map(book => (
         <li key={book.id}>
-          {book.title} - {book.rating}
+          {book.title} - {book.description}
         </li>
       ))}
     </ul>

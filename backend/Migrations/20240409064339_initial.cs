@@ -23,6 +23,7 @@ namespace backend.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cover = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Year = table.Column<int>(type: "int", nullable: false),
+                    DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Discriminator = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: false),
                     NbPages = table.Column<int>(type: "int", nullable: true),
                     DurationMinutes = table.Column<int>(type: "int", nullable: true)
