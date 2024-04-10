@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import Layout from "../layout/layout";
 import axios from "axios";
 import { mediaBaseUrl } from "../constants/url.constant";
+//import {Edit, Delete} from '@mui/icons-material'
 
 
 const Books=()=>{
     const [books,setBooks]=useState([])
+    const navigate = useNavigate();
 
     useEffect(()=>{
         const fetchAllBooks=async()=>{
@@ -43,11 +45,11 @@ const Books=()=>{
                         <span>{book.nbPages}</span>
                         <span>{book.year}</span>
                         <button className="delete" onClick={()=>handleDelete(book.mediaId)}>Delete</button>
-                        <button className="update"><Link to={`/update/${book.mediaId}`}>Update</Link></button>
+                        <button className="update" onClick={()=>navigate(`update/${book.mediaId}`)}>Update</button>
                     </div>
                 ))}
             </div>
-            <button className="Button"><Link to="/addbooks">Add new Book</Link></button>
+            <button className="Button" onClick={()=>navigate("/addbooks")}>Add new Book</button>
         </div>
         </Layout>
     )

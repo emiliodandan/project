@@ -6,8 +6,8 @@ import axios from "axios";
 import { mediaBaseUrl } from "../constants/url.constant";
 
 const Movies=()=>{
-    const [movies,setMovies]=useState([])
-
+    const [movies,setMovies]=useState([]);
+    const navigate=useNavigate();
     useEffect(()=>{
         const fetchAllMovies=async()=>{
             try{
@@ -42,11 +42,11 @@ const Movies=()=>{
                         <span>{movie.year}</span>
                         <span>{movie.durationMinutes}</span>
                         <button className="delete" onClick={()=>handleDelete(movie.mediaId)}>Delete</button>
-                        <button className="update"><Link to={`/update/${movie.mediaId}`}>Update</Link></button>
+                        <button className="update" onClick={()=>navigate(`update/${book.mediaId}`)}>Update</button>
                     </div>
                 ))}
             </div>
-            <button className="Button"><Link to="/addmovies">Add new Movie</Link></button>
+            <button className="Button" onClick={()=>navigate("/addmovies")}>Add new Movie</button>
         </div>
         </Layout>
     )

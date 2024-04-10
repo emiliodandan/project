@@ -79,8 +79,7 @@ function Login() {
             </div>
           </form>
           <p>Forgot password?</p>
-          <button className="formButton">
-            <Link to="/register">+</Link>
+          <button className="formButton" onClick={()=> navigate('/register')}>+
           </button>
           {wrong && (
             <div>
