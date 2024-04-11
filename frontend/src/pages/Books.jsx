@@ -1,10 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 import Layout from "../layout/layout";
 import axios from "axios";
 import { mediaBaseUrl } from "../constants/url.constant";
 //import {Edit, Delete} from '@mui/icons-material'
+import {Button} from '@mui/material'
+
 
 
 const Books=()=>{
@@ -44,8 +46,8 @@ const Books=()=>{
                         <span>{book.creator}</span>
                         <span>{book.nbPages}</span>
                         <span>{book.year}</span>
-                        <button className="delete" onClick={()=>handleDelete(book.mediaId)}>Delete</button>
-                        <button className="update" onClick={()=>navigate(`update/${book.mediaId}`)}>Update</button>
+                        <Button className="delete" variant='outlined' color='error' onClick={()=>handleDelete(book.mediaId)}>Delete</Button>
+                        <Button className="update" variant='outlined' color='warning' sx={{mx:3}} onClick={()=>navigate(`/update/${book.mediaId}`)}>Edit</Button>
                     </div>
                 ))}
             </div>

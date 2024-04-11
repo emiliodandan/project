@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 import Layout from "../layout/layout";
 import axios from "axios";
 import { mediaBaseUrl } from "../constants/url.constant";
+import {Button} from '@mui/material'
 
 const Movies=()=>{
     const [movies,setMovies]=useState([]);
@@ -41,8 +42,8 @@ const Movies=()=>{
                         <span>{movie.creator}</span>
                         <span>{movie.year}</span>
                         <span>{movie.durationMinutes}</span>
-                        <button className="delete" onClick={()=>handleDelete(movie.mediaId)}>Delete</button>
-                        <button className="update" onClick={()=>navigate(`update/${book.mediaId}`)}>Update</button>
+                        <Button className="delete" variant='outlined' color='error' onClick={()=>handleDelete(movie.mediaId)}>Delete</Button>
+                        <Button className="update" variant='outlined' color='warning' sx={{mx:3}} onClick={()=>navigate(`/update/${book.mediaId}`)}>Edit</Button>
                     </div>
                 ))}
             </div>
