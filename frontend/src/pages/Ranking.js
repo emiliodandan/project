@@ -10,8 +10,17 @@ const Ranking = () => {
 
   const getBooks = async () => {
     try {
-      const res = await axios.get(userCartBaseUrl+'GetRankings/1')
+      const res = await axios.get(userCartBaseUrl+'GetRankingsBooks/1')
       setBooks(res.data)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const getMovies = async () => {
+    try {
+      const res = await axios.get(userCartBaseUrl+'GetRankingsMovies/1')
+      setMovies(res.data)
     } catch (error) {
       console.log(error);
     }
@@ -19,6 +28,7 @@ const Ranking = () => {
 
   useEffect(() => {
     getBooks();
+    getMovies();
   }, []);
 
   return (
@@ -26,6 +36,7 @@ const Ranking = () => {
     <div>
       <h1>Ranking Page</h1>
       <h2>Movies</h2>
+      <MovieList movies={movies} />
       <h2>Books</h2>
       <BookList books={books} />
     </div>

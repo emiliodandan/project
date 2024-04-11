@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Layout from "../layout/layout";
 import axios from "axios";
 import { mediaBaseUrl } from "../constants/url.constant";
+import Swal from "sweetalert2";
+
 
 const AddMovies = () => {
   const [movie, setMovie] = useState({
@@ -23,6 +25,10 @@ const AddMovies = () => {
     e.preventDefault();
     try {
       await axios.post(mediaBaseUrl + "CreateMovie", movie);
+      Swal.fire({
+        icon:"success",
+        title: "Movie added successfully"
+    });
       navigate("/movies");
     } catch (err) {
       console.log(err);

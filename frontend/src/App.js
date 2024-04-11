@@ -14,7 +14,7 @@ import Home from './pages/Home';
 import Ranking from './pages/Ranking';
 import BookPage from './pages/BookPage';
 import MoviePage from './pages/MoviePage';
-import UserCart from './pages/UserCartBook';
+import UserCart from './pages/UserCart';
 import UpdateMovie from './pages/UpdateMovie';
 
 function App() {

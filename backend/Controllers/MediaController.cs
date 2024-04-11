@@ -246,5 +246,31 @@ namespace backend.Controllers
             }
             return Ok(newMovieReleases);
         }
+
+        [HttpGet("GetCartItems2/{userId}")]
+        public async Task<ActionResult<IEnumerable<UserCart>>> GetCartItems(int userId, string mediaType)
+        {
+            // Check if mediaType parameter is provided and valid
+            if (string.IsNullOrWhiteSpace(mediaType))
+            {
+                // If mediaType parameter is not provided, return all cart items for the user
+                var cartItems = await _context.UserCarts
+                    .Where(cart => cart.UserId == userId)
+                    .Include(cart => cart.Media)
+                    .ToListAsync();
+
+                return Ok(cartItems);
+            }
+            else
+            {
+                // If mediaType parameter is provided, filter cart items by media type
+                var cartItems = await _context.UserCarts
+                    .Where(cart => cart.UserId == userId && cart.Media.MediaType == mediaType)
+                    .Include(cart => cart.Media)
+                    .ToListAsync();
+
+                return Ok(cartItems);
+            }
+        }
     }
 }

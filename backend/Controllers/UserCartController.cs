@@ -84,7 +84,7 @@ namespace backend.Controllers
         [HttpPatch("AddRanking/{userId}/{cartItemId}/{rankId}")]
         public async Task<ActionResult> AddRanking([FromRoute] int userId, [FromRoute] int cartItemId, [FromRoute] int rankId)
         {
-            var rank = await _context.UserCarts.FirstOrDefaultAsync(u => u.UserId == userId && u.MediaId == cartItemId);
+            var rank = await _context.UserCarts.FirstOrDefaultAsync(u => u.UserId == userId && u.CartItemId == cartItemId);
             if (rank is null)
             {
                 return NotFound("Item not found");
@@ -111,26 +111,67 @@ namespace backend.Controllers
             return Ok("Item deleted");
         }
 
-        [HttpGet("GetRankings/{id}")]
-        public async Task<ActionResult<List<object>>> GetRankings([FromRoute] int id)
+        [HttpGet("GetRankingsMovies/{id}")]
+        public async Task<ActionResult<List<object>>> GetRankingsMovies([FromRoute] int id)
         {
             var rankings = await _context.UserCarts
                 .Include(u => u.Media)
-                .Where(u => u.UserId == id)
+                .Where(u => u.UserId == id && u.Media.MediaType == "movie") // Filter by mediaType
                 .OrderByDescending(u => u.Ranking)
                 .Select(u => new
                 {
-                    Cover = u.Media.Cover, 
+                    Cover = u.Media.Cover,
                     Ranking = u.Ranking
                 })
                 .ToListAsync();
 
-            if (rankings == null)
+            if (rankings == null || !rankings.Any())
             {
-                return NotFound("Not found");
+                return NotFound("No rankings found for movies.");
             }
 
             return Ok(rankings);
+        }
+
+        [HttpGet("GetRankingsBooks/{id}")]
+        public async Task<ActionResult<List<object>>> GetRankingsBooks([FromRoute] int id)
+        {
+            var rankings = await _context.UserCarts
+                .Include(u => u.Media)
+                .Where(u => u.UserId == id && u.Media.MediaType == "book") // Filter by mediaType
+                .OrderByDescending(u => u.Ranking)
+                .Select(u => new
+                {
+                    Cover = u.Media.Cover,
+                    Ranking = u.Ranking
+                })
+                .ToListAsync();
+
+            if (rankings == null || !rankings.Any())
+            {
+                return NotFound("No rankings found for movies.");
+            }
+
+            return Ok(rankings);
+        }
+
+        [HttpGet("GetRanking/{userId}/{userCartId}")]
+        public async Task<ActionResult> GetRanking([FromRoute] int userId, [FromRoute] int userCartId)
+        {
+            var rank = await _context.UserCarts
+                .Where(u => u.UserId == userId && u.CartItemId == userCartId)
+                .Select(u => new
+                {
+                    Ranking = u.Ranking
+                })
+                .FirstOrDefaultAsync(); 
+
+            if (rank == null)
+            {
+                return NotFound("Rank not found");
+            }
+
+            return Ok(rank);
         }
 
 

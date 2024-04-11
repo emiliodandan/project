@@ -4,6 +4,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Layout from '../layout/layout';
 import axios from 'axios';
 import { mediaBaseUrl } from '../constants/url.constant';
+import Swal from "sweetalert2";
+
 
 
 const UpdateMovie = () => {
@@ -33,6 +35,10 @@ const UpdateMovie = () => {
         e.preventDefault();
         try {
             await axios.patch(mediaBaseUrl + "UpdateMovie/" + movieId, movie);
+            Swal.fire({
+                icon:"success",
+                title: "Movie updated successfully"
+            });
             navigate("/movies");
         } catch (err) {
             console.log(err);

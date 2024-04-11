@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {useLocation, useNavigate } from "react-router-dom";
 import Layout from "../layout/layout";
 import { mediaBaseUrl } from "../constants/url.constant";
 import axios from "axios";
 import { toHaveDescription } from "@testing-library/jest-dom/dist/matchers";
+import Swal from "sweetalert2";
 
 
 const AddBooks=()=>{
@@ -17,6 +18,7 @@ const AddBooks=()=>{
         year: ""
     });
     const navigate=useNavigate()
+    const location = useLocation()
 
     const handleChange=(e)=>{
         setBook(prev=>({...prev,[e.target.name]: e.target.value}))
@@ -25,6 +27,10 @@ const AddBooks=()=>{
         e.preventDefault();
         try{
             await axios.post(mediaBaseUrl + "CreateBook", book)
+            Swal.fire({
+                icon:"success",
+                title: "Book added successfully"
+            });
             navigate("/books");
         }catch(err){
             console.log(err);

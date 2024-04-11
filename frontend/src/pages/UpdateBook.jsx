@@ -3,6 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Layout from '../layout/layout';
 import axios from 'axios';
 import { mediaBaseUrl } from '../constants/url.constant';
+import Swal from "sweetalert2";
+
 
 const UpdateBook = () => {
     const [book, setBook] = useState({
@@ -27,6 +29,10 @@ const UpdateBook = () => {
         e.preventDefault();
         try {
             await axios.patch(mediaBaseUrl + "UpdateBook/" + bookId, book);
+            Swal.fire({
+                icon:"success",
+                title: "Book updated successfully"
+            });
             navigate("/books");
         } catch (err) {
             console.log(err);

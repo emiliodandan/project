@@ -6,8 +6,9 @@ import { userCartBaseUrl, mediaBaseUrl } from "../constants/url.constant";
 import "./UserCart.css";
 import Layout from "../layout/layout";
 import BookRanking from "../layout/BookRanking";
+import Swal from "sweetalert2";
 
-const UserCart = () => {
+const UserCartMovie = () => {
   const [cart, setCart] = useState([]);
   const [mediaMap, setMediaMap] = useState({});
   const location = useLocation();
@@ -17,9 +18,10 @@ const UserCart = () => {
   const fetchCart = async () => {
     try {
       const response = await axios.get(
-        userCartBaseUrl + "GetCartItems/" + userId
+        `${userCartBaseUrl}GetCartItems/${userId}?mediaType=movie`
       );
       setCart(response.data);
+
       // Fetch media for each cart item
       const mediaFetchPromises = response.data.map((cartItem) =>
         fetchMedia(cartItem.mediaId)
@@ -34,21 +36,26 @@ const UserCart = () => {
 
   const fetchMedia = async (mediaId) => {
     try {
-      const response = await axios.get(mediaBaseUrl + "GetMovieById/" + mediaId);
+      const response = await axios.get(
+        mediaBaseUrl + "GetMovieById/" + mediaId
+      );
+
+      // Check if response status is 404
+      if (response.status === 404) {
+        // Do not add to media map
+      }
+
+      // Add to media map if response status is not 404
       setMediaMap((prevState) => ({
         ...prevState,
         [mediaId]: response.data,
       }));
     } catch (error) {
-      alert("An error occurred while fetching the media.");
+      // Handle other errors
+      // alert("An error occurred while fetching the media.");
+      console.error("Error fetching media:", error);
     }
   };
-
-  useEffect(() => {
-    fetchCart();
-  }, []);
-
-  
 
   useEffect(() => {
     fetchCart();
@@ -59,9 +66,14 @@ const UserCart = () => {
       const response = await axios.delete(
         userCartBaseUrl + "DeleteCartItem/" + cartItemId
       );
+      
       setCart((prevCart) =>
         prevCart.filter((cartItem) => cartItem.CartItemId !== cartItemId)
       );
+      setTimeout(Swal.fire({
+        icon: "success",
+        title: "Movie removed successfully from the cart",
+      }), 250000)
       window.location.reload();
     } catch (error) {
       console.log(error);
@@ -69,54 +81,60 @@ const UserCart = () => {
   };
 
   return (
-    <Layout>
-      <div className="products">
-        <h1>User's Cart</h1>
-        {cart.length === 0 ? (
-          <h2>No Media Added</h2>
-        ) : (
-          <div>
-            <div className="table-wrapper">
-              <h2>Movie Cart</h2>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Cover</th>
-                    <th>Title</th>
-                    <th>Creator</th>
-                    <th>Date Added</th>
-                    <th>Ranking</th>
-                    <th>Operations</th>
+    <div className="products">
+      <h1>User's Cart</h1>
+      {cart.length === 0 ? (
+        <h2>No Movie Added</h2>
+      ) : (
+        <div>
+          <div className="table-wrapper">
+            <h2>Movie Cart</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Cover</th>
+                  <th>Title</th>
+                  <th>Creator</th>
+                  <th>Date Added</th>
+                  <th>Ranking</th>
+                  <th>Operations</th>
+                </tr>
+              </thead>
+              <tbody>
+                {cart.map((cartItem) => (
+                  <tr key={cartItem.cartItemId}>
+                    {mediaMap[cartItem.mediaId] ? (
+                      <>
+                        <td>
+                          <img src={mediaMap[cartItem.mediaId].cover} />
+                        </td>
+                        <td>{mediaMap[cartItem.mediaId].title}</td>
+                        <td>{mediaMap[cartItem.mediaId].creator}</td>
+                        <td>{moment(cartItem.dateAdded).fromNow()}</td>
+                        <td>
+                          <BookRanking
+                            maxStars={5}
+                            cartItemId={cartItem.cartItemId}
+                            userId={userId}
+                          />
+                        </td>
+                        <td>
+                          <button
+                            onClick={() => handleRemove(cartItem.cartItemId)}
+                          >
+                            Remove
+                          </button>
+                        </td>
+                      </>
+                    ) : null}
                   </tr>
-                </thead>
-                <tbody>
-                  {cart.map((cartItem) => (
-                    <tr key={cartItem.cartItemId}>
-                      <td>
-                        <img src={mediaMap[cartItem.mediaId]?.cover} />
-                      </td>
-                      <td>{mediaMap[cartItem.mediaId]?.title}</td>
-                      <td>{mediaMap[cartItem.mediaId]?.creator}</td>
-                      <td>{moment(cartItem.dateAdded).fromNow()}</td>
-                      <td>
-                        <BookRanking maxStars={5} />
-                      </td>
-                      <td>
-                        <button
-                          onClick={() => handleRemove(cartItem.cartItemId)}
-                        >
-                          Remove
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </tbody>
+            </table>
           </div>
-        )}
-      </div>
-    </Layout>
+        </div>
+      )}
+    </div>
   );
 };
-export default UserCart;
+export default UserCartMovie;

@@ -4,6 +4,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { mediaBaseUrl, userCartBaseUrl } from "../constants/url.constant";
 import "./BookPage.css";
 import Layout from "../layout/layout";
+import Swal from "sweetalert2";
+
 
 const BookPage = () => {
   const nav = useNavigate();
@@ -43,8 +45,10 @@ const BookPage = () => {
       const res = await axios.post(userCartBaseUrl + "AddToCart", userCartObj);
       console.log(res.status, res.statusText);
       if (res.status == 200) {
-        alert("added to cart");
-        nav(`/usercart/${userId}`)
+        Swal.fire({
+          icon:"success",
+          title: "Book added successfully to cart"
+      });
       }
     } catch (error) {
       console.log(error);
