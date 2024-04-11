@@ -3,14 +3,14 @@ import classes from './MainNavigation.module.css';
 function MainNavigation(){
     return(
         <header className={classes.header}>
-            <div className={classes.logo}><Link to='/home'>LibraFlick</Link></div>
+            <div className={classes.logo}><Link to='/'>LibraFlick</Link></div>
             <nav>
                 <ul>
                     <li>
-                        <Link to='/movies'>My Movies</Link>
+                        <Link to='/movies'>Movies</Link>
                     </li>
                     <li>
-                        <Link to='/books'>My Books</Link>
+                        <Link to='/books'>Books</Link>
                     </li>
                     <li>
                         <Link to='/addmovies'>Add New Movies</Link>
@@ -22,7 +22,10 @@ function MainNavigation(){
                         <Link to='/ranking'>Ranking</Link>
                     </li>
                     <li>
-                        <Link to='/'>Sign Out</Link>
+                        <Link to='/usercart/:id'>Cart</Link>
+                    </li>
+                    <li>
+                        <Link to='/login'>Login</Link>
                     </li>
                 </ul>
             </nav>

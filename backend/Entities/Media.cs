@@ -31,6 +31,7 @@ namespace backend.Entities
         public string Cover { get; set; }
         [Required]
         public int Year { get; set; }
+        [Required]
         public DateTime DateAdded { get; set; }
 
 

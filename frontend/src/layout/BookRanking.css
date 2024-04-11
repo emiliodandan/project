@@ -1,0 +1,17 @@
+.book-ranking {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .book-ranking span {
+    cursor: pointer;
+  }
+  
+  .star-filled {
+    color: gold;
+  }
+  
+  .star-empty {
+    color: #ccc;
+  }

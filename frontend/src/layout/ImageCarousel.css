@@ -1,0 +1,40 @@
+.image-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .image-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .image-wrapper img {
+    width: 100%;
+    display: block;
+  }
+  
+  .active {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  
+  .arrow-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .arrow-button.left {
+    left: 10px;
+  }
+  
+  .arrow-button.right {
+    right: 10px;
+  }

@@ -1,0 +1,40 @@
+/* BookListMenu.module.css */
+.movie-list-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movie-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Display the list items as flex items */
+}
+
+.movie-item {
+    margin: 10px;
+    position: relative;
+    display: inline-block; /* Display the list items as inline-block elements */
+}
+
+.movie-cover-container {
+    perspective: 1000px;
+}
+
+.movie-description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the description */
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.movie-cover {
+    width: auto; /* Adjust according to your cover size */
+    height: 300px; /* Set a fixed height for all covers */
+    object-fit: cover; /* Ensure the image covers the entire container */
+}

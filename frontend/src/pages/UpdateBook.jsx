@@ -4,7 +4,7 @@ import Layout from '../layout/layout';
 import axios from 'axios';
 import { mediaBaseUrl } from '../constants/url.constant';
 
-const UpdateBooks = () => {
+const UpdateBook = () => {
     const [book, setBook] = useState({
         mediaType: "book",
         title: "",
@@ -17,7 +17,7 @@ const UpdateBooks = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    const bookId = location.pathname.split("/")[2];
+    const bookId = location.pathname.split("/")[3];
 
     const handleChange = (e) => {
         setBook(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -26,13 +26,7 @@ const UpdateBooks = () => {
     const handleClick = async e => {
         e.preventDefault();
         try {
-            const updatedFields = {};
-            for (const key in book) {
-                if (book.hasOwnProperty(key) && book[key] !== "") {
-                    updatedFields[key] = book[key];
-                }
-            }
-            await axios.patch(`${mediaBaseUrl}UpdateBook/${bookId}`, updatedFields);
+            await axios.patch(mediaBaseUrl + "UpdateBook/" + bookId, book);
             navigate("/books");
         } catch (err) {
             console.log(err);
@@ -59,4 +53,4 @@ const UpdateBooks = () => {
     );
 };
 
-export default UpdateBooks;
+export default UpdateBook;

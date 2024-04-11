@@ -1,0 +1,66 @@
+/* moviePage.css */
+.movie-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .movie {
+    display: flex;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .movie.expanded {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .movie-cover {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    margin-right: 16px;
+    border-radius: 4px;
+  }
+  
+  .movie-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .movie-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 8px;
+  }
+  
+  .movie-description {
+    font-size: 16px;
+    color: #666;
+    max-height: 100px; /* Adjust based on your requirement for collapsed view */
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+  }
+  
+  .add-to-cart-btn {
+    background-color: #388e3c; /* Green Color Code from Image */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #2e7d32; /* Darker Green Color Code when hover */
+  }
+  
+  /* Add any additional styles as needed */
+  

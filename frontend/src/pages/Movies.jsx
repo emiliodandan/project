@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 import Layout from "../layout/layout";
 import axios from "axios";
 import { mediaBaseUrl } from "../constants/url.constant";
@@ -36,13 +36,8 @@ const Movies=()=>{
                 {movies.map(movie=>(
                     <div className="movie" key={movie.mediaId}>
                         {movie.cover && <img src={movie.cover} alt="" />}
-                        <h2>{movie.title}</h2>
-                        <p>{movie.description}</p>
-                        <span>{movie.creator}</span>
-                        <span>{movie.year}</span>
-                        <span>{movie.durationMinutes}</span>
                         <button className="delete" onClick={()=>handleDelete(movie.mediaId)}>Delete</button>
-                        <button className="update" onClick={()=>navigate(`update/${book.mediaId}`)}>Update</button>
+                        <button className="update" onClick={()=>navigate('updatemovie/' + movie.mediaId)}>Update</button>
                     </div>
                 ))}
             </div>

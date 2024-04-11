@@ -11,5 +11,6 @@ namespace backend.Dtos
         public string Cover { get; set; }
         public int NbPages { get; set; }
         public int Year { get; set; }
+        public DateTime DateAdded { get; set; }
     }
 }

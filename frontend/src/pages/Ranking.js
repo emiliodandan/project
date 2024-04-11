@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import MovieList from './MovieList';
 import BookList from './BookList';
+import MovieList from './MovieList';
 import Layout from '../layout/layout';
-
+import axios from 'axios';
+import { userCartBaseUrl } from '../constants/url.constant';
 const Ranking = () => {
   const [movies, setMovies] = useState([]);
   const [books, setBooks] = useState([]);
 
-  useEffect(() => {
-    // Fetch movies
-    fetch('https://api.example.com/movies')
-      .then(response => response.json())
-      .then(data => setMovies(data));
+  const getBooks = async () => {
+    try {
+      const res = await axios.get(userCartBaseUrl+'GetRankings/1')
+      setBooks(res.data)
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-    // Fetch books
-    fetch('https://api.example.com/books')
-      .then(response => response.json())
-      .then(data => setBooks(data));
+  useEffect(() => {
+    getBooks();
   }, []);
 
   return (
@@ -24,7 +26,6 @@ const Ranking = () => {
     <div>
       <h1>Ranking Page</h1>
       <h2>Movies</h2>
-      <MovieList movies={movies} />
       <h2>Books</h2>
       <BookList books={books} />
     </div>

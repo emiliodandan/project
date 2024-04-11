@@ -18,7 +18,7 @@ const Register=()=>{
         e.preventDefault();
         try{
             await axios.post(usersBaseUrl + "AddUser/", User);
-            navigate("/");
+            navigate("/login");
         }catch(err){
             console.log(err);
         }

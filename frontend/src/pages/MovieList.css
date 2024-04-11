@@ -1,0 +1,20 @@
+.movie-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 20px; /* Add some space between items */
+  }
+  
+  .movie-list li {
+    text-align: center; /* Center align the content */
+  }
+  
+  .movie-list img {
+    width: 150px; /* Fixed width for the cover image */
+    height: 200px; /* Fixed height for the cover image */
+  }
+  
+  .movie-ranking {
+    margin-top: 10px; /* Add space between cover and ranking */
+  }
+  

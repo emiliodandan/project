@@ -4523,23 +4523,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Emilio\\.nuget\\packages\\": {},
+    "C:\\Users\\eddyg\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CS 3eme annee\\Semestre 6\\Projet I3332(C#)\\project\\backend\\backend.csproj",
+      "projectUniqueName": "D:\\project\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "D:\\CS 3eme annee\\Semestre 6\\Projet I3332(C#)\\project\\backend\\backend.csproj",
-      "packagesPath": "C:\\Users\\Emilio\\.nuget\\packages\\",
-      "outputPath": "D:\\CS 3eme annee\\Semestre 6\\Projet I3332(C#)\\project\\backend\\obj\\",
+      "projectPath": "D:\\project\\backend\\backend.csproj",
+      "packagesPath": "C:\\Users\\eddyg\\.nuget\\packages\\",
+      "outputPath": "D:\\project\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Emilio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\eddyg\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

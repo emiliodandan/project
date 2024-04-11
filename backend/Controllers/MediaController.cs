@@ -32,8 +32,8 @@ namespace backend.Controllers
                 Year = dto.Year,
                 Cover = dto.Cover,
                 Description = dto.Description,
-                NbPages = dto.NbPages
-                
+                NbPages = dto.NbPages,
+                DateAdded = DateTime.Now
             };
 
             await _context.Books.AddAsync(book);
@@ -54,7 +54,8 @@ namespace backend.Controllers
                 Year = dto.Year,
                 Description = dto.Description,
                 Cover = dto.Cover,
-                DurationMinutes = dto.DurationMinutes
+                DurationMinutes = dto.DurationMinutes,
+                DateAdded = DateTime.Now
             };
 
             await _context.Movies.AddAsync(movie);
@@ -138,7 +139,7 @@ namespace backend.Controllers
             {
                 return BadRequest("No fields provided for update");
             }
-
+            book.DateAdded = DateTime.Now;
             await _context.SaveChangesAsync();
 
             return Ok("Book updated");
@@ -183,6 +184,8 @@ namespace backend.Controllers
                 return BadRequest("No fields provided for update");
             }
 
+            movie.DateAdded = DateTime.Now;
+
             await _context.SaveChangesAsync();
 
             return Ok("Movie updated");
@@ -218,6 +221,30 @@ namespace backend.Controllers
             await _context.SaveChangesAsync();
 
             return Ok("Movie deleted");
+        }
+
+        [HttpGet("GetNewBooks")]
+        public async Task<ActionResult<List<Book>>> GetNewBooks()
+        {
+            var oneWeek = DateTime.Today.AddDays(-7);
+            var newBookReleases = _context.Books.Where(b => b.DateAdded > oneWeek);
+            if (newBookReleases is null)
+            {
+                return NotFound("No new releases. Stay tuned");
+            }
+            return Ok(newBookReleases);
+        }
+
+        [HttpGet("GetNewMovies")]
+        public async Task<ActionResult<List<Movie>>> GetNewMovies()
+        {
+            var oneWeek = DateTime.Today.AddDays(-7);
+            var newMovieReleases = _context.Movies.Where(m => m.DateAdded > oneWeek);
+            if (newMovieReleases is null)
+            {
+                return NotFound("No new releases. Stay tuned");
+            }
+            return Ok(newMovieReleases);
         }
     }
 }

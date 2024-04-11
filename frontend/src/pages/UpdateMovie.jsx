@@ -6,10 +6,10 @@ import axios from 'axios';
 import { mediaBaseUrl } from '../constants/url.constant';
 
 
-const Update = () => {
+const UpdateMovie = () => {
     //use state to take values from this form
-    const [book, setBook] = useState({
-        mediaType: "book",
+    const [movie, setMovie] = useState({
+        mediaType: "movie",
         title: "",
         creator: " ",
         description: "",
@@ -19,26 +19,27 @@ const Update = () => {
     });
 
     const navigate = useNavigate() //go back to home when done with form fill
-    const location = useLocation() //to get l id lal update
+    const location = useLocation()
 
-    const bookId = location.pathname.split("/")[2];
+    const movieId = location.pathname.split("/")[3];
+
 
 
     const handleChange = (e) => {
-        setBook(prev => ({ ...prev, [e.target.name]: e.target.value }));
+        setMovie(prev => ({ ...prev, [e.target.name]: e.target.value }));
     }; //update the data we input in the form
 
     const handleClick = async e => {
         e.preventDefault();
         try {
-            await axios.patch(mediaBaseUrl + "Update/" + bookId, book);
+            await axios.patch(mediaBaseUrl + "UpdateMovie/" + movieId, movie);
             navigate("/movies");
         } catch (err) {
             console.log(err);
         }
     };
 
-    console.log(book)
+    console.log(movie)
     return (
         <Layout>
             <div className="form">
@@ -80,11 +81,11 @@ const Update = () => {
                     name="year"
                 />
                 <button className="formButton" onClick={handleClick}>
-                    Add
+                    Update
                 </button>
             </div>
         </Layout>
     );
 };
 
-export default Update;
+export default UpdateMovie;

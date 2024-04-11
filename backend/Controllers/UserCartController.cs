@@ -2,6 +2,7 @@
 using backend.Dtos;
 using backend.Entities;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -33,16 +34,22 @@ namespace backend.Controllers
             return Ok("Added item to user cart");
         }
 
-        [HttpGet("GetCartItem/{id}")]
-        public async Task<ActionResult> GetUserCartByUserId([FromRoute] int id)
+        [HttpGet("GetCartItems/{id}")]
+        public async Task<ActionResult<List<UserCart>>> GetUserCartByUserId([FromRoute] int id)
         {
-            var cartItem = await _context.UserCarts.FirstOrDefaultAsync(i => i.UserId == id);
-            if (cartItem is null)
+            var cartItems = await _context.UserCarts
+                                        .Where(i => i.UserId == id)
+                                        .OrderByDescending(i => i.DateAdded) // Assuming Id is the property to order by
+                                        .ToListAsync();
+
+            if (cartItems is null)
             {
                 return NotFound("Cart not found");
             }
-            return Ok(cartItem);
+
+            return Ok(cartItems);
         }
+
 
         [HttpDelete("DeleteCartItem/{userId}/{mediaId}")]
         public async Task<ActionResult> DeleteItemByMediaId([FromRoute] int userId, [FromRoute] int mediaId)
@@ -87,6 +94,43 @@ namespace backend.Controllers
 
             await _context.SaveChangesAsync();
             return Ok("Added ranking");
+        }
+
+        [HttpDelete("DeleteCartItem/{id}")]
+        public async Task<ActionResult> DeleteCartItem([FromRoute] int id)
+        {
+            var cartItem = await _context.UserCarts.FirstOrDefaultAsync(c => c.CartItemId == id);
+            if (cartItem is null)
+            {
+                return NotFound("Item not found");
+            }
+
+            _context.UserCarts.Remove(cartItem);
+            await _context.SaveChangesAsync();
+
+            return Ok("Item deleted");
+        }
+
+        [HttpGet("GetRankings/{id}")]
+        public async Task<ActionResult<List<object>>> GetRankings([FromRoute] int id)
+        {
+            var rankings = await _context.UserCarts
+                .Include(u => u.Media)
+                .Where(u => u.UserId == id)
+                .OrderByDescending(u => u.Ranking)
+                .Select(u => new
+                {
+                    Cover = u.Media.Cover, 
+                    Ranking = u.Ranking
+                })
+                .ToListAsync();
+
+            if (rankings == null)
+            {
+                return NotFound("Not found");
+            }
+
+            return Ok(rankings);
         }
 
 

@@ -15,7 +15,6 @@ const AddBooks=()=>{
         cover:"",
         nbPages: "",
         year: ""
-
     });
     const navigate=useNavigate()
 
