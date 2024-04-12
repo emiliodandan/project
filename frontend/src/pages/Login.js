@@ -30,7 +30,7 @@ function Login() {
       console.log(res);
       if (res.status === 200) {
         console.log("Login successful");
-        navigate("/home");
+        navigate("/");
       } //else console.log("Login failed", responseData.error);
     } catch (error) {
       console.log("Login error", error);

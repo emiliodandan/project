@@ -1,0 +1,35 @@
+/* CSS */
+.dashboard-container {
+    display: flex;
+  }
+  
+  .navbar {
+    width: 200px;
+  }
+  
+  .navbar-items {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -200px; /* Hide sidebar by default */
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    transition: left 0.3s ease-in-out;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  .main-content {
+    flex: 1; /* Take remaining space */
+    margin-left: 200px; /* Adjust margin to accommodate sidebar width */
+  }
+  
+  /* Style the navbar buttons as needed */

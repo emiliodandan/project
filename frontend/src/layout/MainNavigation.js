@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
 import { Menu } from "@mui/icons-material";
+import ThemeSwitcher from "./ThemeSwitcher";
+import Dashboard from "./Dashboard";
 function MainNavigation() {
   return (
     <header className={classes.header}>
@@ -28,21 +30,10 @@ function MainNavigation() {
             <Link to="/usercart/:id">Cart</Link>
           </li>
           <li>
-            <div>
-              <Menu />
-            </div>
-            <div className="close">
-                <li>
-                    <Link to='/'>Home Nigga</Link>
-                </li>
-                <li>
-                    <Link to='/'>Settings</Link>
-                </li>
-                <li>
-                    <Link to='/login'>Login</Link>
-                </li>
-
-            </div>
+            <ThemeSwitcher />
+          </li>
+          <li>
+            <Dashboard />
           </li>
         </ul>
       </nav>

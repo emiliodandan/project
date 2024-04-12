@@ -36,3 +36,41 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+ 
+.theme-switcher {
+  top: 20px;
+  right: 20px;
+}
+ 
+
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark {
+  background-color: #202020;
+  color: #ffffff;
+
+  h1,h2,h3,h4,h5,p {
+    color: #ffffff;
+  }
+}
+
+.button-theme {
+  border: 0;
+  background-color: rgb(242, 100, 100);
+  color: #fcb8d2;
+  font-size: 0.9999999rem;
+  margin-top: 40px;
+}
+
+.button-theme:hover {
+  color: #ffffff;
+  cursor: pointer;
+}
