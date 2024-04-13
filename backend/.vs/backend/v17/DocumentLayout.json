@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "D:\\project\\backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\project\\backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\project\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\project\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,14 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\project\\backend\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\project\\backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\project\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DA6957D7-691F-406A-8037-3807D8603B81}|backend.csproj|d:\\project\\backend\\controllers\\usercartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,33 +70,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\project\\backend\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
               "ToolTip": "D:\\project\\backend\\Properties\\launchSettings.json",
               "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AQIAAAgAAACAAQAAAAARwBIAAAAvAAAA",
+              "ViewState": "AQIAAAQAAAAom5mZmdkhwBEAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-04-12T14:33:01.031Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\project\\backend\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\project\\backend\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-08T16:10:28.05Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\project\\backend\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -109,7 +109,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "UsersController.cs",
               "DocumentMoniker": "D:\\project\\backend\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
@@ -117,8 +117,7 @@
               "RelativeToolTip": "Controllers\\UsersController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T12:04:56.574Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T12:04:56.574Z"
             },
             {
               "$type": "Document",
@@ -130,8 +129,7 @@
               "RelativeToolTip": "Controllers\\UserCartController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T13:21:50.88Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T13:21:50.88Z"
             },
             {
               "$type": "Document",
@@ -143,8 +141,7 @@
               "RelativeToolTip": "Dtos\\UserCartDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T13:23:39.205Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T13:23:39.205Z"
             },
             {
               "$type": "Document",
@@ -156,12 +153,11 @@
               "RelativeToolTip": "Dtos\\MovieDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-11T06:37:28.61Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T06:37:28.61Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "D:\\project\\backend\\Context\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Context\\ApplicationDbContext.cs",
@@ -169,12 +165,11 @@
               "RelativeToolTip": "Context\\ApplicationDbContext.cs",
               "ViewState": "AQIAAAgAAACAAAAAAAANwBEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T11:18:46.601Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T11:18:46.601Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MediaController.cs",
               "DocumentMoniker": "D:\\project\\backend\\Controllers\\MediaController.cs",
               "RelativeDocumentMoniker": "Controllers\\MediaController.cs",
@@ -182,8 +177,7 @@
               "RelativeToolTip": "Controllers\\MediaController.cs",
               "ViewState": "AQIAAPwAAAAAAgAAAMAmwAIBAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T11:14:55.435Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T11:14:55.435Z"
             },
             {
               "$type": "Document",
@@ -195,8 +189,7 @@
               "RelativeToolTip": "Dtos\\UserDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T12:06:48.91Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T12:06:48.91Z"
             },
             {
               "$type": "Document",
@@ -208,8 +201,7 @@
               "RelativeToolTip": "Entities\\Media.cs",
               "ViewState": "AQIAAC8AAAAAAAAAAABQwEAAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T13:21:53.004Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T13:21:53.004Z"
             },
             {
               "$type": "Document",
@@ -221,8 +213,7 @@
               "RelativeToolTip": "Migrations\\20240411063638_initial.cs",
               "ViewState": "AQIAAAwAAABgm5mZmdkpwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-11T06:36:39.007Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T06:36:39.007Z"
             },
             {
               "$type": "Document",
@@ -234,8 +225,7 @@
               "RelativeToolTip": "Dtos\\BookDto.cs",
               "ViewState": "AQIAAAQAAAAgAAAAAEAuwA0AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-11T06:37:10.811Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T06:37:10.811Z"
             }
           ]
         }
